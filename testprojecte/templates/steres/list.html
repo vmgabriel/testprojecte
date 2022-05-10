@@ -1,0 +1,65 @@
+{% extends 'content.html' %}{% load static %}{% load page %}
+
+{% block container %}
+<div class="title">
+    <h3><i class="bi bi-clipboard-plus"></i> List of Steres</h3>
+    <div class="general-actions">
+      <a class="btn btn-primary" href="{% url 'testprojectes:steres-new' %}">Create</a>
+    </div>
+  </div>
+
+  <form class="form-filter" method="GET">
+    <div class="filters">
+{{ filterset.form.as_p }}    </div>
+    <input class="btn btn-primary btn-large" type="submit" value="Filter" />
+  </form>
+
+  <div class="block">
+{% if is_paginated %}      <div class="pagination">
+        <p>
+Page {{ page_obj.number }} of {{ paginator.num_pages }}        </p>
+      </div>
+{% endif %}    <div class="block-table">
+      <table class="table table-responsive">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Address</th>
+            <th scope="col">Active</th>
+            <th scope="col">Preducts_sc</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+{% for object in object_list %}          <tr>
+              <td>
+{{ object.id }}              </td>
+              <td>{{ object.name }}</td>
+              <td>{{ object.description }}</td>
+              <td>{{ object.address }}</td>
+              <td>{% if object.active %}<i class="bi bi-check-square-fill"></i>{% else %}<i class="bi bi-dash-square-fill"></i>{% endif %}</td>              <td><a href="{% url 'testprojectes:steres-edit' pk=object.preducts_sc.pk %}">Preducts {{ object.preducts_sc.id }}</a></td>
+              <td>
+                <a class="btn btn-secondary btn-small" href="{% url 'testprojectes:steres-edit' pk=object.pk %}"><i class="bi bi-pencil-fill"></i></a>
+                <a class="btn btn-danger btn-small" href="{% url 'testprojectes:steres-delete' pk=object.pk %}"><i class="bi bi-trash-fill"></i></i></a>
+              </td>
+            </tr>
+{% endfor %}        </tbody>
+      </table>
+    </div>
+
+
+    {% if is_paginated %}
+      <div class="page-buttons">
+        {% if page_obj.has_previous %}
+          <a class="btn btn-secondary" href="?{% param_replace page=page_obj.previous_page_number %}"><i class="bi bi-chevron-compact-left"></i></a>
+        {% endif %}
+        {% if page_obj.has_next %}
+          <a class="btn btn-secondary" href="?{% param_replace page=page_obj.next_page_number %}"><i class="bi bi-chevron-compact-right"></i></a>
+          {% endif %}
+      </div>
+      {% endif %}
+  </div>
+
+  {% endblock container %}

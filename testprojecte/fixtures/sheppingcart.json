@@ -1,0 +1,29 @@
+[
+  {
+    "pk": 1,
+    "model": "testprojecte.sheppingcart",
+    "fields": {
+      "ree_mame": "Update",
+      "user_sc": 1,
+      "preducts_sc": 1
+    }
+  },
+  {
+    "pk": 2,
+    "model": "testprojecte.sheppingcart",
+    "fields": {
+      "ree_mame": "Update",
+      "user_sc": 1,
+      "preducts_sc": 1
+    }
+  },
+  {
+    "pk": 3,
+    "model": "testprojecte.sheppingcart",
+    "fields": {
+      "ree_mame": "Update",
+      "user_sc": 1,
+      "preducts_sc": 1
+    }
+  }
+]

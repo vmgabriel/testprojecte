@@ -1,0 +1,28 @@
+{% extends "content.html" %}
+{% load static %}
+
+
+{% block container %}
+  <div class="title">
+    <h3>{% if is_update %}<i class="bi bi-pencil-square"></i> Update Sheppingcart {{ object.pk }}{% else %}<i class="bi bi-clipboard-plus"></i> Create New Sheppingcart{% endif %}</h3>
+  </div>
+
+  <div class="block">
+    <form method="POST" enctype="multipart/form-data">
+{% csrf_token %}      <div class="input-field col s12">
+        <label for="ree_mame">{{ form.ree_mame.label }}</label>
+{{ form.ree_mame }}      </div>
+      <div class="input-field col s12">
+        <label for="user_sc">{{ form.user_sc.label }}</label>
+{{ form.user_sc }}      </div>
+      <div class="input-field col s12">
+        <label for="preducts_sc">{{ form.preducts_sc.label }}</label>
+{{ form.preducts_sc }}      </div>
+      <div class="buttons">
+        <a class="btn btn-secondary" href="{% if is_update %}{% url 'testprojectes:sheppingcart-edit' pk=object.pk %}{% else %}{% url 'testprojectes:sheppingcart-new' %}{% endif %}">Cancel</a>
+        <input class="btn btn-primary" type="submit" value="{% if is_update %}Update{% else %}Save{% endif %}">
+      </div>
+    </form>
+  </div>
+
+{% endblock container %}

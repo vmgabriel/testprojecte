@@ -1,0 +1,24 @@
+defmodule Steres : steres do
+  name -> string : True > 120 = 
+  description -> string : True > 120 = 
+  address -> string : True > 120 = 
+  active -> boolean : True > 120 = 
+  preducts_sc -> Preducts : True > 120 = 
+end
+
+defmodule User : user do
+  name -> string : True > 120 = 
+  nick -> string : True > 120 = 
+end
+
+defmodule Preducts : preducts do
+  name -> string : True > 120 = 
+  description -> string : True > 120 = 
+  active -> boolean : True > 120 = 
+end
+
+defmodule sheppingCart : sheppingcart do
+  ree_mame -> string : True > 120 = 
+  user_sc -> User : True > 120 = 
+  preducts_sc -> Preducts : True > 120 = 
+end

@@ -1,0 +1,1121 @@
+{
+    "info": {
+        "_postman_id": "9155d480-bea3-4764-a150-c7150430cb01",
+        "name": "testprojecte",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Auth",
+			      "item": [
+				        {
+					          "name": "Auth",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"email_here\",\n    \"password\": \"password_here\"\n}",
+							              "options": {
+								                "raw": {
+									                  "language": "json"
+                                }
+						                }
+						            },
+						            "url": {
+							              "raw": "{{urlServer}}:{{portServer}}/api/auth/jwt/",
+							              "protocol": "http",
+							              "host": [
+								                "{{urlServer}}"
+                            ],
+							              "port": "{{portServer}}",
+							              "path": [
+								                "api",
+								                "auth",
+								                "jwt",
+								                ""
+							              ]
+                        }
+                    },
+					          "response": []
+				        },
+				        {
+                    "name": "Refresh Auth",
+					          "request": {
+						            "auth": {
+							              "type": "noauth"
+						            },
+						            "method": "POST",
+						            "header": [],
+						            "body": {
+							              "mode": "raw",
+							              "raw": "{\n    \"token\": \"the_token\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+						            "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/auth/jwt/refresh/",
+                            "protocol": "http",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{urlServer}}",
+                            "path": [
+                                "api",
+                                "auth",
+								                "jwt",
+								                "refresh",
+								                ""
+							              ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Logout Auth",
+                    "request": {
+                        "auth": {
+                            "type": "bearer",
+                            "bearer": [
+                                {
+                                    "key": "the_token",
+                                    "value": "",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+						            "method": "POST",
+						            "header": [],
+						            "body": {
+                            "mode": "raw",
+                            "raw": "",
+							              "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/auth/jwt/logout/",
+							              "protocol": "http",
+							              "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{urlServer}}",
+                            "path": [
+                                "api",
+                                "auth",
+								                "jwt",
+								                "logout",
+								                ""
+							              ]
+                        }
+                    },
+					          "response": []
+                }
+            ]
+        },        {
+            "name": "Steres",
+            "item": [
+                {
+                    "name": "Get All Steress",
+                    "request": {
+                        "auth": {
+                            "type": "oauth2",
+                            "oauth2": [
+                                {
+                                    "key": "accessToken",
+                                    "value": "{{accessToken}}",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "addTokenTo",
+                                    "value": "header",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/steress/",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "steress",
+                                ""
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get One Steres by Id",
+                    "request": {
+                        "auth": {
+                            "type": "oauth2",
+                            "oauth2": [
+                                {
+                                    "key": "accessToken",
+                                    "value": "{{accessToken}}",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "addTokenTo",
+                                    "value": "header",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/steress/1",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "steres",
+                                "1"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Steres",
+                    "request": {
+                        "auth": "oauth2",
+                        "oauth2": [
+                            {
+                                "key": "accessToken",
+                                "value": "{{accessToken}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "addTokenTo",
+                                "value": "header",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"test data\",\n    \"description\": \"test data\",\n    \"address\": \"test data\",\n    \"active\": \"true\",\n    \"preducts_sc\": \"Preducts\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/steress/",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "steress",
+                                ""
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Steres by Id",
+                    "request":  {
+                        "auth": "oauth2",
+                        "oauth2": [
+                            {
+                                "key": "accessToken",
+                                "value": "{{accessToken}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "addTokenTo",
+                                "value": "header",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"test data\",\n    \"description\": \"test data\",\n    \"address\": \"test data\",\n    \"active\": \"true\",\n    \"preducts_sc\": \"Preducts\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/steress/1",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "steress",
+                                "1"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Steres by Id",
+                    "request":  {
+                        "auth": "oauth2",
+                        "oauth2": [
+                            {
+                                "key": "accessToken",
+                                "value": "{{accessToken}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "addTokenTo",
+                                "value": "header",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/steress/1",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "steres",
+                                "1"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "User",
+            "item": [
+                {
+                    "name": "Get All Users",
+                    "request": {
+                        "auth": {
+                            "type": "oauth2",
+                            "oauth2": [
+                                {
+                                    "key": "accessToken",
+                                    "value": "{{accessToken}}",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "addTokenTo",
+                                    "value": "header",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/users/",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "users",
+                                ""
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get One User by Id",
+                    "request": {
+                        "auth": {
+                            "type": "oauth2",
+                            "oauth2": [
+                                {
+                                    "key": "accessToken",
+                                    "value": "{{accessToken}}",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "addTokenTo",
+                                    "value": "header",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/users/1",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "user",
+                                "1"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create User",
+                    "request": {
+                        "auth": "oauth2",
+                        "oauth2": [
+                            {
+                                "key": "accessToken",
+                                "value": "{{accessToken}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "addTokenTo",
+                                "value": "header",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"test data\",\n    \"nick\": \"test data\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/users/",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "users",
+                                ""
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update User by Id",
+                    "request":  {
+                        "auth": "oauth2",
+                        "oauth2": [
+                            {
+                                "key": "accessToken",
+                                "value": "{{accessToken}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "addTokenTo",
+                                "value": "header",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"test data\",\n    \"nick\": \"test data\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/users/1",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "users",
+                                "1"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete User by Id",
+                    "request":  {
+                        "auth": "oauth2",
+                        "oauth2": [
+                            {
+                                "key": "accessToken",
+                                "value": "{{accessToken}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "addTokenTo",
+                                "value": "header",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/users/1",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "user",
+                                "1"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Preducts",
+            "item": [
+                {
+                    "name": "Get All Preductss",
+                    "request": {
+                        "auth": {
+                            "type": "oauth2",
+                            "oauth2": [
+                                {
+                                    "key": "accessToken",
+                                    "value": "{{accessToken}}",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "addTokenTo",
+                                    "value": "header",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/preductss/",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "preductss",
+                                ""
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get One Preducts by Id",
+                    "request": {
+                        "auth": {
+                            "type": "oauth2",
+                            "oauth2": [
+                                {
+                                    "key": "accessToken",
+                                    "value": "{{accessToken}}",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "addTokenTo",
+                                    "value": "header",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/preductss/1",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "preducts",
+                                "1"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Preducts",
+                    "request": {
+                        "auth": "oauth2",
+                        "oauth2": [
+                            {
+                                "key": "accessToken",
+                                "value": "{{accessToken}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "addTokenTo",
+                                "value": "header",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"test data\",\n    \"description\": \"test data\",\n    \"active\": \"true\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/preductss/",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "preductss",
+                                ""
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Preducts by Id",
+                    "request":  {
+                        "auth": "oauth2",
+                        "oauth2": [
+                            {
+                                "key": "accessToken",
+                                "value": "{{accessToken}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "addTokenTo",
+                                "value": "header",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"test data\",\n    \"description\": \"test data\",\n    \"active\": \"true\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/preductss/1",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "preductss",
+                                "1"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Preducts by Id",
+                    "request":  {
+                        "auth": "oauth2",
+                        "oauth2": [
+                            {
+                                "key": "accessToken",
+                                "value": "{{accessToken}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "addTokenTo",
+                                "value": "header",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/preductss/1",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "preducts",
+                                "1"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Sheppingcart",
+            "item": [
+                {
+                    "name": "Get All Sheppingcarts",
+                    "request": {
+                        "auth": {
+                            "type": "oauth2",
+                            "oauth2": [
+                                {
+                                    "key": "accessToken",
+                                    "value": "{{accessToken}}",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "addTokenTo",
+                                    "value": "header",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/sheppingcarts/",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "sheppingcarts",
+                                ""
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get One Sheppingcart by Id",
+                    "request": {
+                        "auth": {
+                            "type": "oauth2",
+                            "oauth2": [
+                                {
+                                    "key": "accessToken",
+                                    "value": "{{accessToken}}",
+                                    "type": "string"
+                                },
+                                {
+                                    "key": "addTokenTo",
+                                    "value": "header",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "text"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/sheppingcarts/1",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "sheppingcart",
+                                "1"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Sheppingcart",
+                    "request": {
+                        "auth": "oauth2",
+                        "oauth2": [
+                            {
+                                "key": "accessToken",
+                                "value": "{{accessToken}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "addTokenTo",
+                                "value": "header",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"ree_mame\": \"test data\",\n    \"user_sc\": \"User\",\n    \"preducts_sc\": \"Preducts\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/sheppingcarts/",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "sheppingcarts",
+                                ""
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Sheppingcart by Id",
+                    "request":  {
+                        "auth": "oauth2",
+                        "oauth2": [
+                            {
+                                "key": "accessToken",
+                                "value": "{{accessToken}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "addTokenTo",
+                                "value": "header",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"ree_mame\": \"test data\",\n    \"user_sc\": \"User\",\n    \"preducts_sc\": \"Preducts\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/sheppingcarts/1",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "sheppingcarts",
+                                "1"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Sheppingcart by Id",
+                    "request":  {
+                        "auth": "oauth2",
+                        "oauth2": [
+                            {
+                                "key": "accessToken",
+                                "value": "{{accessToken}}",
+                                "type": "string"
+                            },
+                            {
+                                "key": "addTokenTo",
+                                "value": "header",
+                                "type": "string"
+                            }
+                        ],
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "name": "Content-Type",
+                                "value": "application/json",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{urlServer}}:{{portServer}}/api/v1/sheppingcarts/1",
+                            "host": [
+                                "{{urlServer}}"
+                            ],
+                            "port": "{{portServer}}",
+                            "path": [
+                                "api",
+                                "v1",
+                                "sheppingcart",
+                                "1"
+                            ],
+                            "query": [
+                                {
+                                    "key": "userId",
+                                    "value": "33",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ]
+}

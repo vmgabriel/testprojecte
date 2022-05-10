@@ -1,0 +1,29 @@
+[
+  {
+    "pk": 1,
+    "model": "testprojecte.preducts",
+    "fields": {
+      "name": "Update",
+      "description": "Update",
+      "active": true
+    }
+  },
+  {
+    "pk": 2,
+    "model": "testprojecte.preducts",
+    "fields": {
+      "name": "Update",
+      "description": "Update",
+      "active": true
+    }
+  },
+  {
+    "pk": 3,
+    "model": "testprojecte.preducts",
+    "fields": {
+      "name": "Update",
+      "description": "Update",
+      "active": true
+    }
+  }
+]

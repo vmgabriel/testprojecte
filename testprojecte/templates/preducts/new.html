@@ -1,0 +1,28 @@
+{% extends "content.html" %}
+{% load static %}
+
+
+{% block container %}
+  <div class="title">
+    <h3>{% if is_update %}<i class="bi bi-pencil-square"></i> Update Preducts {{ object.pk }}{% else %}<i class="bi bi-clipboard-plus"></i> Create New Preducts{% endif %}</h3>
+  </div>
+
+  <div class="block">
+    <form method="POST" enctype="multipart/form-data">
+{% csrf_token %}      <div class="input-field col s12">
+        <label for="name">{{ form.name.label }}</label>
+{{ form.name }}      </div>
+      <div class="input-field col s12">
+        <label for="description">{{ form.description.label }}</label>
+{{ form.description }}      </div>
+      <div class="input-field col s12">
+        <label for="active">{{ form.active.label }}</label>
+{{ form.active }}      </div>
+      <div class="buttons">
+        <a class="btn btn-secondary" href="{% if is_update %}{% url 'testprojectes:preducts-edit' pk=object.pk %}{% else %}{% url 'testprojectes:preducts-new' %}{% endif %}">Cancel</a>
+        <input class="btn btn-primary" type="submit" value="{% if is_update %}Update{% else %}Save{% endif %}">
+      </div>
+    </form>
+  </div>
+
+{% endblock container %}

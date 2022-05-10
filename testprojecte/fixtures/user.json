@@ -1,0 +1,26 @@
+[
+  {
+    "pk": 1,
+    "model": "testprojecte.user",
+    "fields": {
+      "name": "Update",
+      "nick": "Update"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "testprojecte.user",
+    "fields": {
+      "name": "Update",
+      "nick": "Update"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "testprojecte.user",
+    "fields": {
+      "name": "Update",
+      "nick": "Update"
+    }
+  }
+]
